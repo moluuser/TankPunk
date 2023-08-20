@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class PlayerManager : MonoBehaviour
         if (hp <= 0)
         {
             isDefeated = true;
+            Invoke("ReturnToMenu", 3f);
         }
         else
         {
@@ -61,6 +63,7 @@ public class PlayerManager : MonoBehaviour
         if (isDefeated)
         {
             gameOverPrefab.SetActive(true);
+            Invoke("ReturnToMenu", 3f);
             return;
         }
 
@@ -71,5 +74,10 @@ public class PlayerManager : MonoBehaviour
         {
             Recover();
         }
+    }
+
+    private void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

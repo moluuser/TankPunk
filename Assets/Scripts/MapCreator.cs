@@ -17,6 +17,11 @@ public class MapCreator : MonoBehaviour
 
     private void Awake()
     {
+        InitMap();
+    }
+
+    private void InitMap()
+    {
         CreateItem(item[0], new Vector3(0, (float)-10.5, 0), Quaternion.identity);
         CreateItem(item[1], new Vector3(0, -9, 0), Quaternion.identity);
 

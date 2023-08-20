@@ -6,6 +6,7 @@ public class Base : MonoBehaviour
 {
     private SpriteRenderer sr;
     public Sprite brokenSprite;
+    public AudioClip dieAudioClip;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,6 @@ public class Base : MonoBehaviour
     {
         PlayerManager.Instance.isDefeated = true;
         sr.sprite = brokenSprite;
+        AudioSource.PlayClipAtPoint(dieAudioClip, transform.position);
     }
 }

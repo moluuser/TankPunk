@@ -37,6 +37,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Wall":
+                collision.SendMessage("PlayAudio");
                 Instantiate(explosionPrefab, transform.position, transform.rotation);
                 Destroy(collision.gameObject);
                 Destroy(gameObject);

@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject defendEffectPrefab;
 
+    public AudioSource moveAudio;
+    public AudioClip[] tankAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +67,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Die() 
+    private void Die()
     {
         if (isDefended)
         {
@@ -80,6 +83,8 @@ public class Player : MonoBehaviour
     private void Move()
     {
         float v = Input.GetAxisRaw("Vertical"); // -1, 0, 1
+        float h = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
+
         transform.Translate(Vector3.up * v * Time.deltaTime * speed, Space.World);
         if (v < 0)
         {
@@ -89,12 +94,29 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+
+        if (Mathf.Abs(v) > 0.05f || Mathf.Abs(h) > 0.05f)
+        {
+            moveAudio.clip = tankAudio[1];
+            if (!moveAudio.isPlaying)
+            {
+                moveAudio.Play();
+            }
+        }
+        else
+        {
+            moveAudio.clip = tankAudio[0];
+            if (!moveAudio.isPlaying)
+            {
+                moveAudio.Play();
+            }
+        }
+
         if (v != 0)
         {
             return;
         }
 
-        float h = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
         transform.Translate(Vector3.right * h * Time.deltaTime * speed, Space.World);
         if (h < 0)
         {
