@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8564162050412203337}
   - component: {fileID: 3061737640296572954}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  isPlayerBullet: 1
+  isPlayerBullet: 0
 --- !u!61 &-8564162050412203337
 BoxCollider2D:
   m_ObjectHideFlags: 0

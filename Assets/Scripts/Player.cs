@@ -5,8 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
+    private float timer = 0;
+    private float defenseTimeVal = 3;
+    private bool isDefended = true;
 
     public GameObject bulletPrefab;
+    public GameObject explosionPrefab;
+    public GameObject defendEffectPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +22,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (timer > 0.4f)
+        {
+            Attack();
+        }
+        else
+        {
+            timer += Time.deltaTime;
+        }
 
-        Attack();
+        if (isDefended)
+        {
+            defendEffectPrefab.SetActive(true);
 
+            defenseTimeVal -= Time.deltaTime;
+            if (defenseTimeVal <= 0)
+            {
+                isDefended = false;
+                defendEffectPrefab.SetActive(false);
+            }
+        }
     }
 
 
@@ -34,7 +56,19 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Instantiate(bulletPrefab, transform.position, Quaternion.Euler(transform.eulerAngles));
+            timer = 0;
         }
+    }
+
+    private void Die() 
+    {
+        if (isDefended)
+        {
+            return;
+        }
+
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void Move()
