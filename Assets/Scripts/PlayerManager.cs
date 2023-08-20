@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class PlayerManager : MonoBehaviour
     public int score = 0;
     public bool isDead = false;
     public GameObject playerPrefab;
+    public bool isDefeated = false;
+
+    public TMP_Text scoreText;
+    public TMP_Text hpText;
+
+    public GameObject gameOverPrefab;
 
     private static PlayerManager instance;
 
@@ -33,8 +40,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (hp <= 0)
         {
-            // TODO
-            return;
+            isDefeated = true;
         }
         else
         {
@@ -52,10 +58,18 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDefeated)
+        {
+            gameOverPrefab.SetActive(true);
+            return;
+        }
+
+        scoreText.text = PlayerManager.Instance.score.ToString();
+        hpText.text = PlayerManager.Instance.hp.ToString();
+
         if (isDead)
         {
             Recover();
         }
-
     }
 }

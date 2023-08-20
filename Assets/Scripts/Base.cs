@@ -21,6 +21,7 @@ public class Base : MonoBehaviour
 
     public void Die()
     {
+        PlayerManager.Instance.isDefeated = true;
         sr.sprite = brokenSprite;
     }
 }

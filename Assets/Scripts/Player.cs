@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerManager.Instance.isDefeated)
+        {
+            return;
+        }
         Move();
     }
 
