@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (timer > 2f)
+        if (timer > 1f)
         {
             Attack();
         }
@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        PlayerManager.Instance.score++;
+
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

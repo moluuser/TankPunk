@@ -26,9 +26,11 @@ public class MapCreator : MonoBehaviour
         CreateItem(item[1], new Vector3((float)1.5, (float)-10.5, 0), Quaternion.identity);
         CreateItem(item[1], new Vector3((float)1.5, -9, 0), Quaternion.identity);
 
+        // Init Player
         Instantiate(item[5], CreateRandomPosition(), Quaternion.identity);
 
-        for (int i = 0; i < 5; i++)
+        // Init Enemy
+        for (int i = 0; i < 10; i++)
         {
             CreateItem(item[6], CreateRandomPosition(), Quaternion.identity);
         }

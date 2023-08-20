@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
                 if (!isPlayerBullet)
                 {
                     collision.SendMessage("Die");
+                    Destroy(gameObject);
                 }
                 break;
             case "Base":
@@ -44,12 +45,11 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Enemy":
-                // Destroy(collision.gameObject);
-                // Destroy(gameObject);
-                break;
-            case "EnemyBullet":
-                // Destroy(collision.gameObject);
-                // Destroy(gameObject);
+                if (isPlayerBullet)
+                {
+                    collision.SendMessage("Die");
+                    Destroy(gameObject);
+                }
                 break;
             default:
                 break;

@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
             return;
         }
 
+        PlayerManager.Instance.isDead = true;
+
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
