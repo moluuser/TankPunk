@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 8f;
     public bool isPlayerBullet;
+    public GameObject explosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +31,12 @@ public class Bullet : MonoBehaviour
                 }
                 break;
             case "Base":
+                Instantiate(explosionPrefab, transform.position, transform.rotation);
                 collision.SendMessage("Die");
                 Destroy(gameObject);
                 break;
             case "Wall":
+                Instantiate(explosionPrefab, transform.position, transform.rotation);
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
                 break;

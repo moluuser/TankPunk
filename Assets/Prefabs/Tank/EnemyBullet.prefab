@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   isPlayerBullet: 0
+  explosionPrefab: {fileID: 6725873894511349907, guid: 4fa8d10bb782444c88de857ad70e4bb7, type: 3}
 --- !u!61 &-8564162050412203337
 BoxCollider2D:
   m_ObjectHideFlags: 0
