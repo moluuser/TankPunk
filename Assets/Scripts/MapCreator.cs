@@ -10,6 +10,8 @@ public class MapCreator : MonoBehaviour
     // 2. Barrier
     // 3. River
     // 4. Grass
+    // 5. Player
+    // 6. Enemy
 
     private List<Vector3> itemPositionList = new List<Vector3>();
 
@@ -24,11 +26,18 @@ public class MapCreator : MonoBehaviour
         CreateItem(item[1], new Vector3((float)1.5, (float)-10.5, 0), Quaternion.identity);
         CreateItem(item[1], new Vector3((float)1.5, -9, 0), Quaternion.identity);
 
+        Instantiate(item[5], CreateRandomPosition(), Quaternion.identity);
+
+        for (int i = 0; i < 5; i++)
+        {
+            CreateItem(item[6], CreateRandomPosition(), Quaternion.identity);
+        }
+
         for (int i = 0; i < 20; i++)
         {
             CreateItem(item[1], CreateRandomPosition(), Quaternion.identity);
         }
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 30; i++)
         {
             CreateItem(item[2], CreateRandomPosition(), Quaternion.identity);
         }

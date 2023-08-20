@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 733699352613922391}
   - component: {fileID: 8354222652081832000}
   - component: {fileID: 3118136961076583801}
+  - component: {fileID: 2137432969825785381}
   m_Layer: 0
   m_Name: Player
   m_TagString: Tank
@@ -364,7 +365,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 4.2, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8150631736523048235}
@@ -446,6 +447,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2137432969825785381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4384954259310643353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32bc2c479c6e47b695b328d093d302c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  bulletPrefab: {fileID: 2499480071221478685, guid: df26896276ab1487db3a36a929ceba9a, type: 3}
+  explosionPrefab: {fileID: 6725873894511349907, guid: 4fa8d10bb782444c88de857ad70e4bb7, type: 3}
+  defendEffectPrefab: {fileID: 6297749263709906894}
 --- !u!1 &6297749263709906894
 GameObject:
   m_ObjectHideFlags: 0
