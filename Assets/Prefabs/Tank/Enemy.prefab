@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 733699352613922391}
   - component: {fileID: 4482677360839963434}
   - component: {fileID: -5195432911155702166}
+  - component: {fileID: -5878938098633645063}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -250,7 +251,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
 --- !u!50 &-5195432911155702166
 Rigidbody2D:
@@ -267,7 +268,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -279,6 +280,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5878938098633645063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4384954259310643353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e94de7485ea34bc9aca069c46a27e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  bulletPrefab: {fileID: 2499480071221478685, guid: 8744e2ca3c08a4e158b00bb70b6bb7ca, type: 3}
+  explosionPrefab: {fileID: 6725873894511349907, guid: 4fa8d10bb782444c88de857ad70e4bb7, type: 3}
 --- !u!1 &4721461045310415020
 GameObject:
   m_ObjectHideFlags: 0
